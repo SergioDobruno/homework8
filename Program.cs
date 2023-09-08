@@ -2,13 +2,13 @@
 // по убыванию элементы каждой строки двумерного массива.
 
 // int[,] matrix = new int[3, 4];
-// FillMatrixRandom(matrix);
+// GetMatrixRandom(matrix);
 // PrintMatrix(matrix);
 // SortToLower(matrix);
 // Console.WriteLine();
 // PrintMatrix(matrix);
 
-// void FillMatrixRandom(int[,] matrix)
+// void GetMatrixRandom(int[,] matrix)
 // {
 //     for (int i = 0; i < matrix.GetLength(0); i++)
 //     {
@@ -55,7 +55,7 @@
 // Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
 // int[,] matrix = new int[3, 4];
-// FillMatrixRandom(matrix);
+// GetMatrixRandom(matrix);
 // PrintMatrix(matrix);
 // Console.WriteLine();
 // MinSum(matrix);
@@ -97,7 +97,7 @@
 // }
 
 
-// void FillMatrixRandom(int[,] matrix)
+// void GetMatrixRandom(int[,] matrix)
 // {
 //     for (int i = 0; i < matrix.GetLength(0); i++)
 //     {
@@ -112,3 +112,38 @@
 // Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 // Массив размером 2 x 2 x 2
 
+int[,,] matrix = new int[2, 2, 2];
+GetMatrix(matrix);
+PrintIndex(matrix);
+
+
+void PrintIndex(int[,,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            Console.WriteLine();
+            for (int k = 0; k < matrix.GetLength(2); k++)
+            {
+                Console.Write($"{matrix[i, j, k]}({i},{j},{k}) ");
+            }
+        }
+    }
+}
+
+void GetMatrix(int[,,] matrix)
+{
+    int count = 10;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            for (int k = 0; k < matrix.GetLength(2); k++)
+            {
+                matrix[k, i, j] += count;
+                count += 3;
+            }
+        }
+    }
+}
